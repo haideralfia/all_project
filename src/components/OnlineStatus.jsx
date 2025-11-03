@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const OnlineStatus = () => {
+  const [isOnline, setIsOnLine] = useState();
+  useEffetct(() => {}, []);
+
   console.log(navigator.onLine);
   return (
     <>
