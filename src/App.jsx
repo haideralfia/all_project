@@ -13,6 +13,7 @@ function App() {
       {/* <RandomUser /> */}
       <OnlineStatus />
       <LikeIcon />
+      <Liveclock />
     </>
   );
 }
