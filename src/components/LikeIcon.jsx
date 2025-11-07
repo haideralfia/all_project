@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { FaRegHeart } from 'react-icons/fa';
 
 const LikeIcon = () => {
+  const [count, setCount] = useState(+localStorage.getItem('count') || 0);
+  const [liked, setLiked] = useState(false);
+  const handleLike = () => {
+    setLiked(!liked);
+    console.log('liked');
+    setCount(count + 1);
+  };
+  //issue here
+  const handleCount = () => {
+    setCount(count - 1);
+  };
+  useEffect(() => {
+    localStorage.setItem('count', count.toString());
+  }, [count]);
   return (
-    <div>LikeIcon</div>
-  )
-}
+    <>
+      <h1>Like Icon</h1>
+      <button
+        onClick={handleLike}
+        onDoubleClick={handleCount}
+        style={liked ? { color: 'red' } : { color: 'black' }}
+      >
+        <FaRegHeart /> Like
+      </button>
+    </>
+  );
+};
 
-export default LikeIcon
+export default LikeIcon;
