@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const OnlineStatus = () => {
-  const [isOnline, setIsOnLine] = useState();
-  useEffetct(() => {}, []);
+  const [isOnline, setIsOnLine] = useState(navigator.onLine);
+  const handleOnline = () => {
+    setIsOnLine(true);
+  };
+  const handleOffline = () => {
+    setIsOnLine(false);
+  };
+  window.addEventListener('online', handleOnline);
+  window.addEventListener('offline', handleOffline);
 
-  console.log(navigator.onLine);
   return (
     <>
-      <p>{navigator.onLine ? 'Online' : 'Offline'}</p>
+      <p>{isOnline ? 'Online' : 'Offline'}</p>
     </>
   );
 };
