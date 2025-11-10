@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 
 const LikeIcon = () => {
+  //either add + to convert it to string or put the whole logic in  JSON.parse(); to convert it back to string
+  
   const [count, setCount] = useState(+localStorage.getItem('count') || 0);
   const [liked, setLiked] = useState(false);
   const handleLike = () => {
