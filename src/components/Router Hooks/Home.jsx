@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import Login from './Login';
-import { Dashboard } from './Dashboard';
+import Dashboard from './Dashboard';
 
 const Home = () => {
   const routes = useRoutes([
@@ -9,7 +9,7 @@ const Home = () => {
     { path: '/login', element: <Login /> },
     { path: '/dashboard', element: <Dashboard /> },
   ]);
-  return <div>{routes}</div>;
+  return routes;
 };
 
 export default Home;
